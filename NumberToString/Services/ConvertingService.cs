@@ -15,14 +15,18 @@ namespace NumberToString.Services
 
             var splittedAmount = amountInString.Split('.');
 
-            accountHolder.Amount = NumberToWords(Math.Abs(int.Parse(splittedAmount[0])));
+            accountHolder.Amount = NumberToWords(int.Parse(splittedAmount[0]));
+
+            var currancy = "DOLLARS";
+            if (Math.Abs(amount) < 2)
+                currancy = "DOLLAR";
 
             if (splittedAmount.Length > 1)
             {
-                accountHolder.Amount = string.Format("{0} DOLLARS AND {1} CENTS", accountHolder.Amount, splittedAmount[1]);
+                accountHolder.Amount = string.Format("{0} {1} AND {2} CENTS", accountHolder.Amount,currancy, splittedAmount[1]);
             }else
             {
-                accountHolder.Amount = string.Format("{0} DOLLARS", accountHolder.Amount);
+                accountHolder.Amount = string.Format("{0} {1}", accountHolder.Amount,currancy);
             }
 
             return accountHolder;

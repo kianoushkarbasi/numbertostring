@@ -17,7 +17,21 @@ namespace NumberToStringUnitTest
             var result = convertingService.ToEnglish(expectedName, 1);
 
             Assert.AreEqual(expectedName ,result.Name);
-            Assert.AreEqual("ONE", result.Amount);
+            Assert.AreEqual("ONE DOLLAR", result.Amount);
+
+
+            result = convertingService.ToEnglish(expectedName, 0);
+
+            Assert.AreEqual(expectedName, result.Name);
+            Assert.AreEqual("ZERO DOLLAR" ,result.Amount);
+
+
+            result = convertingService.ToEnglish(expectedName, -1);
+
+            Assert.AreEqual(expectedName, result.Name);
+            Assert.AreEqual("MINUS ONE DOLLAR", result.Amount);
+
+
         }
     }
 }
