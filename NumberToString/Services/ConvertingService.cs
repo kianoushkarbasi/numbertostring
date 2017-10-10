@@ -23,7 +23,22 @@ namespace NumberToString.Services
 
             if (splittedAmount.Length > 1)
             {
-                accountHolder.Amount = string.Format("{0} {1} AND {2} CENTS", accountHolder.Amount,currancy, NumberToWords(int.Parse(splittedAmount[1])));
+                var cents = int.Parse(splittedAmount[1]);
+                if (Math.Abs(amount) < 1)
+                {
+                                        
+                    accountHolder.Amount = string.Format("{0} {1} {2}",
+                        amount<0? "MINUS" :string.Empty
+                        , NumberToWords(cents),
+                        cents<2? "CENT": "CENTS").Trim();
+                }
+                else
+                {
+                    accountHolder.Amount = string.Format("{0} {1} AND {2} {3}", accountHolder.Amount,
+                        currancy,
+                        NumberToWords(int.Parse(splittedAmount[1])),
+                        cents < 2 ? "CENT" : "CENTS");
+                }
             }else
             {
                 accountHolder.Amount = string.Format("{0} {1}", accountHolder.Amount,currancy);

@@ -49,8 +49,28 @@ namespace NumberToStringUnitTest
             result = convertingService.ToEnglish(expectedName, 0.5);
 
             Assert.AreEqual(expectedName, result.Name);
-            Assert.AreEqual("ZERO DOLLAR AND FIVE CENTS", result.Amount);
+            Assert.AreEqual("FIVE CENTS", result.Amount);
 
         }
+
+        [TestMethod]
+        public void ParseNEgativeNumbersCorrectly()
+        {
+            var expectedName = "test";
+
+            var convertingService = new ConvertingService();
+            var result = convertingService.ToEnglish(expectedName, -1.5);
+
+            Assert.AreEqual(expectedName, result.Name);
+            Assert.AreEqual("MINUS ONE DOLLAR AND FIVE CENTS", result.Amount);
+
+
+            result = convertingService.ToEnglish(expectedName, -0.5);
+
+            Assert.AreEqual(expectedName, result.Name);
+            Assert.AreEqual("MINUS FIVE CENTS", result.Amount);
+
+        }
+
     }
 }
