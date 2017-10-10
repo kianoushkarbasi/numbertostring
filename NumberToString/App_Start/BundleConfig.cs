@@ -17,9 +17,16 @@ namespace NumberToString
                 "~/Scripts/jquery.unobtrusive*",
                 "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-                "~/Scripts/knockout-{version}.js",
-                "~/Scripts/knockout.validation.js"));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.min.js",
+                "~/Scripts/angular-route.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularapps").Include(
+                "~/Scripts/app/app.component.js",
+                "~/Scripts/app/app.module.js",
+                "~/Scripts/main.js"
+                ));
+
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/sammy-{version}.js",

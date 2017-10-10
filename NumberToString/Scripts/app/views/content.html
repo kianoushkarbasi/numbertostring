@@ -1,0 +1,16 @@
+﻿<div >
+    <div class="form-group">
+        <label for="usr">Name:</label>
+        <input ng-model="accountHolder.name" type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input ng-model="accountHolder.amount" type="text" class="form-control" id="amount">
+    </div>
+
+    <input type="button" class="btn btn-primary" value="Send" ng-click="getConvert(accountHolder.name,
+           accountHolder.amount)" />
+    <p>{{name}} : {{amount}} </p>
+    
+    
+</div>

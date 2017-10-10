@@ -1,12 +1,25 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="convertApp" data-framework="typescript">
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/bootstrap.min.css" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 @RenderBody()
+<body >
+
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/app/app.routes.js"></script>
+    <script src="scripts/app/app.module.js"></script>
+    <script src="scripts/app/services/convertNumberService.js"></script>
+    <script src="scripts/app/controllers/convertNumberController.js"></script>
+</body>
+
 </html>
