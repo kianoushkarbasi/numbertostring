@@ -33,5 +33,24 @@ namespace NumberToStringUnitTest
 
 
         }
+
+        [TestMethod]
+        public void ParseFloatsCorrectly()
+        {
+            var expectedName = "test";
+
+            var convertingService = new ConvertingService();
+            var result = convertingService.ToEnglish(expectedName, 1.5);
+
+            Assert.AreEqual(expectedName, result.Name);
+            Assert.AreEqual("ONE DOLLAR AND FIVE CENTS", result.Amount);
+
+
+            result = convertingService.ToEnglish(expectedName, 0.5);
+
+            Assert.AreEqual(expectedName, result.Name);
+            Assert.AreEqual("ZERO DOLLAR AND FIVE CENTS", result.Amount);
+
+        }
     }
 }

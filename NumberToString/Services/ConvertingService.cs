@@ -23,7 +23,7 @@ namespace NumberToString.Services
 
             if (splittedAmount.Length > 1)
             {
-                accountHolder.Amount = string.Format("{0} {1} AND {2} CENTS", accountHolder.Amount,currancy, splittedAmount[1]);
+                accountHolder.Amount = string.Format("{0} {1} AND {2} CENTS", accountHolder.Amount,currancy, NumberToWords(int.Parse(splittedAmount[1])));
             }else
             {
                 accountHolder.Amount = string.Format("{0} {1}", accountHolder.Amount,currancy);
