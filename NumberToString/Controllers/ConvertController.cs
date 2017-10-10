@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using NumberToString.Models;
+using NumberToString.Services;
 using System.Web.Http;
 
 namespace NumberToString.Controllers
 {
     public class ConvertController : ApiController
     {
-        public string Get()
+        public AccountHolder Get(string name, double amount)
         {
-            return "hello";
+            var convertingService = new ConvertingService();
+            return convertingService.ToEnglish(name, amount);
         }
+        
     }
+
 }
